@@ -42,9 +42,11 @@ function App(props) {
       .catch(function (error) {
         console.log(error);
       });
-      
+      setSelecteSong(appleData ? appleData.filter(obj => obj.kind =="song") : [])
   };
+  
   console.log(appleData)
+  console.log(selecteSong)
   
   
 
