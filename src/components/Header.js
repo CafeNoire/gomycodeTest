@@ -1,10 +1,5 @@
-import Container from "./components/Container";
-import "./App.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import axios from "axios";
-import { useEffect, useState } from "react";
 import { IconButton, Typography } from "@mui/material";
+import React, { useEffect, useState } from "react";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
@@ -12,47 +7,11 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { Box } from "@mui/system";
 import LibraryMusicIcon from "@mui/icons-material/LibraryMusic";
 
-function App(props) {
-  
-  const [appleData,setAppleData] = useState('');
-  const [request, setRequest ] = useState('');
+const Header = (props) => {
   const [searchContent, setSearchContent] = useState("");
-  const [filteredList, setFilteredList] = useState("");
-  const [selecteSong, setSelecteSong] = useState("");
-  
-  
-    
-    
-  
-  function getData(){
-    var data = "";
-    var config = {
-      method: "get",
-      url: `https://itunes.apple.com/search?term=${searchContent}&limit=10"`,
-      headers: {},
-      data: data,
-    };
-
-    axios(config)
-      .then(function (response) {
-        //console.log(JSON.stringify(response.data.results));
-        setAppleData(response.data.results)
-        
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-      
-  };
-  console.log(appleData)
-  
-  
 
   return (
-    <div className="App">
-     {/* <Header getData={getData} />*/}
-
-     <div className="header">
+    <div className="header">
       <AppBar position="static" sx={{ minWidth: 535 }}>
         <Toolbar>
           <Typography variant="h5" component="div">
@@ -77,7 +36,7 @@ function App(props) {
             }}
           >
             <Box component="div">
-              <button type="" onClick={getData}>
+              <button type="" onClick={props.getData}>
                 Search
               </button>
             </Box>
@@ -90,10 +49,7 @@ function App(props) {
         </Toolbar>
       </AppBar>
     </div>
-      <Container data={appleData} />
-      <Footer />
-    </div>
   );
-}
+};
 
-export default App;
+export default Header;

@@ -1,0 +1,29 @@
+<div className="logo">
+                <Typography variant='h3'>OurTunes</Typography>
+            </div>
+            <div className='navbar'>
+                <Input type='search' placeholder='Search'></Input>
+                <Button>←</Button>
+            </div>
+            <div className='submit'>
+                <Button>Search</Button>
+            </div>
+
+
+
+            maybe for the music card
+            <Box sx={{textAlign:'center'}}>
+                    <IconButton aria-label='previous'>
+                        {theme.direction === 'rtl' ? <SkipNextIcon/> : <SkipPreviousIcon/>}
+                    </IconButton>
+                    <IconButton aria-label='play/pause'>
+                        <PlayArrowIcon sx={{ height: 38, width: 38 }} />   
+                    </IconButton>
+                    <IconButton aria-label='next'>
+                         {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
+                    </IconButton>
+                </Box>
+
+
+                setSelecteSong(appleData.filter(kind => kind.include("song")))
+                console.log(selecteSong)
